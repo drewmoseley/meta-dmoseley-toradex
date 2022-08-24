@@ -1,0 +1,26 @@
+This README file contains information on the contents of the meta-dmoseley-toradex layer.
+
+Please see the corresponding sections below for details.
+
+Dependencies
+============
+
+  Toradex BSP. Currently v5 is the only version supported.
+  
+Table of Contents
+=================
+
+  I. Adding the meta-dmoseley-toradex layer to your build
+ II. Misc
+
+
+I. Adding the meta-dmoseley-toradex layer to your build
+=================================================
+
+Run 'bitbake-layers add-layer meta-dmoseley-toradex'
+
+II. Misc
+========
+
+This layer contains customizations used by me when working with
+Toradex Yocto builds.
