@@ -1,4 +1,4 @@
-IMAGE_INSTALL_append = " gst-examples "
+IMAGE_INSTALL_append = " gst-examples mesa-demos "
 
 IMAGE_INSTALL_append_apalis-imx8 = " imx-gst1.0-plugin "
 IMAGE_INSTALL_append_verdin-imx8mm = " imx-gst1.0-plugin "
