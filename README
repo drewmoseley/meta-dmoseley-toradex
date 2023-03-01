@@ -22,5 +22,5 @@ Run 'bitbake-layers add-layer meta-dmoseley-toradex'
 II. Misc
 ========
 
-This layer contains customizations used by me when working with
-Toradex Yocto builds.
+This layer contains customizations used to add NFS server
+and client capability to Torizon builds.
