@@ -1,1 +1,1 @@
-require core-image-graphical.inc
+require recipes-images/images/core-image-graphical.inc

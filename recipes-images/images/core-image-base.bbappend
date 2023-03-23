@@ -1,1 +1,1 @@
-require core-image-headless.inc
+require recipes-images/images/core-image-headless.inc
