@@ -1,2 +1,2 @@
 PACKAGECONFIG += "qt"
-PACKAGECONFIG_remove = " gtk "
+PACKAGECONFIG:remove = " gtk "

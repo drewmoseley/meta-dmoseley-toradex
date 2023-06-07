@@ -1,2 +1,2 @@
 require core-image-graphical-chromium.inc
-IMAGE_INSTALL_append = " chromium-ozone-x11 "
+IMAGE_INSTALL:append = " chromium-ozone-x11 "

@@ -1,2 +1,2 @@
-IMAGE_INSTALL_append = " wpewebkit cog "
+IMAGE_INSTALL:append = " wpewebkit cog "
 PREFERRED_PROVIDER_virtual/wpebackend = "wpebackend-fdo"
