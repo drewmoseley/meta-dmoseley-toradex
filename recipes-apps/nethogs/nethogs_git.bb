@@ -11,5 +11,16 @@ S = "${WORKDIR}/git"
 
 inherit setuptools3
 
+do_compile:append () {
+    oe_runmake 'CC=${CC}' 'LD=${LD}' 'LDFLAGS=${LDFLAGS}' nethogs
+}
+
+do_install:append () {
+    oe_runmake 'PREFIX=${D}${bindir}' 'CC=${CC}' 'LD=${LD}' 'LDFLAGS=${LDFLAGS}' install
+    mv ${D}${bindir}/sbin/nethogs ${D}${bindir}
+    rmdir ${D}${bindir}/sbin/
+    rm -rf ${D}${bindir}/share/man
+}
+
 RDEPENDS:${PN} += "python3-core python3-pybind11"
 DEPENDS += "libpcap python3-pybind11-native"
