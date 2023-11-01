@@ -1,0 +1,2 @@
+recipes-connectivity/networkmanager/files/*.nmconnection
+recipes-connectivity/connman/files/*.config
