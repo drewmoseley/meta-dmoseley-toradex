@@ -1,4 +1,4 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "/work/dmoseley/local:"
 
 SRC_URI:append = " \
     file://caribbean-Lab.nmconnection \
