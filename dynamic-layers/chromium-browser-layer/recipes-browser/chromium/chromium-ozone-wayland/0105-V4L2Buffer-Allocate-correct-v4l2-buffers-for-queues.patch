@@ -1,23 +1,23 @@
-From 8c5e88c38c6ef5c9864016b90dfc3ae49cc11ddb Mon Sep 17 00:00:00 2001
+From 0fb3b4e00f9165fa49f401fb422cfd5ebfa84f75 Mon Sep 17 00:00:00 2001
 From: Hou Qi <qi.hou@nxp.com>
 Date: Fri, 2 Sep 2022 17:10:12 +0800
-Subject: [PATCH 05/17] V4L2Buffer: Allocate correct v4l2 buffers for queues
+Subject: [PATCH] V4L2Buffer: Allocate correct v4l2 buffers for queues
 
 For single plane queue, need to fill v4l2_planes_[0] with
 correct size quried from v4l2 driver.
 
 Upstream-Status: Inappropriate [NXP specific]
 ---
- media/gpu/v4l2/v4l2_device.cc | 45 ++++++++++++++++++++++++-----------
- 1 file changed, 31 insertions(+), 14 deletions(-)
+ media/gpu/v4l2/v4l2_device.cc | 43 ++++++++++++++++++++++++-----------
+ 1 file changed, 30 insertions(+), 13 deletions(-)
 
 diff --git a/media/gpu/v4l2/v4l2_device.cc b/media/gpu/v4l2/v4l2_device.cc
-index 8194d8646637c..9614eb8e71668 100644
+index e3f35f32e..d6d192514 100644
 --- a/media/gpu/v4l2/v4l2_device.cc
 +++ b/media/gpu/v4l2/v4l2_device.cc
 @@ -210,24 +210,30 @@ V4L2Buffer::V4L2Buffer(scoped_refptr<V4L2Device> device,
    DCHECK(V4L2_TYPE_IS_MULTIPLANAR(type));
-   DCHECK_LE(format.fmt.pix_mp.num_planes, std::size(v4l2_planes_));
+   DCHECK_LE(format.fmt.pix_mp.num_planes, base::size(v4l2_planes_));
  
 -  memset(&v4l2_buffer_, 0, sizeof(v4l2_buffer_));
 -  memset(v4l2_planes_, 0, sizeof(v4l2_planes_));
@@ -25,7 +25,6 @@ index 8194d8646637c..9614eb8e71668 100644
 -  // Just in case we got more planes than we want.
 -  v4l2_buffer_.length =
 -      std::min(static_cast<size_t>(format.fmt.pix_mp.num_planes),
--               std::size(v4l2_planes_));
 +  if (V4L2_TYPE_IS_MULTIPLANAR(type)) {
 +    memset(&v4l2_buffer_, 0, sizeof(v4l2_buffer_));
 +    memset(v4l2_planes_, 0, sizeof(v4l2_planes_));
@@ -33,7 +32,7 @@ index 8194d8646637c..9614eb8e71668 100644
 +    // Just in case we got more planes than we want.
 +    v4l2_buffer_.length =
 +        std::min(static_cast<size_t>(format.fmt.pix_mp.num_planes),
-+                std::size(v4l2_planes_));
+                base::size(v4l2_planes_));
 +  }
    v4l2_buffer_.index = buffer_id;
    v4l2_buffer_.type = type;
@@ -97,5 +96,5 @@ index 8194d8646637c..9614eb8e71668 100644
  
    struct v4l2_requestbuffers reqbufs;
 -- 
-2.17.1
+2.41.0
 
