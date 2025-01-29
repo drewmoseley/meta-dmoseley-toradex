@@ -1,2 +1,1 @@
-IMAGE_INSTALL:append = " wpewebkit cog "
-PREFERRED_PROVIDER_virtual/wpebackend = "wpebackend-fdo"
+IMAGE_INSTALL:append = " chromium-ozone-wayland "
