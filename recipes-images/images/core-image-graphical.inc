@@ -6,6 +6,4 @@ IMAGE_INSTALL:append_colibri-imx7-emmc = " imx-gst1.0-plugin "
 IMAGE_INSTALL:append_colibri-imx8x = " imx-gst1.0-plugin "
 IMAGE_INSTALL:append = " wxwidgets "
 
-IMAGE_FEATURES += "hwcodecs"
-
-IMAGE_INSTALL:append = " pciutils usbutils "
+require recipes-images/images/core-image-headless.inc
