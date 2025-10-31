@@ -1,0 +1,6 @@
+#!/bin/sh
+#
+# Greenboot postinstall script for the IP Secondary demo
+#
+
+exit @POSTINSTALL_RETURN_CODE@

@@ -1,0 +1,4 @@
+[uptane]
+enable_online_updates = true
+enable_offline_updates = true
+offline_updates_source = /var/rootdirs/media/Toradex/update
