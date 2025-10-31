@@ -1,0 +1,26 @@
+From ce1bcc6b19aefa718811856847be71b671f8630d Mon Sep 17 00:00:00 2001
+From: Drew Moseley <drew@moseleynet.net>
+Date: Thu, 30 Oct 2025 20:53:10 +0000
+Subject: [PATCH] Add boot tag to determine whether uBoot is in sd or emmc
+
+Signed-off-by: Drew Moseley <drew@moseleynet.net>
+---
+ board/freescale/imx93_frdm/spl.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/board/freescale/imx93_frdm/spl.c b/board/freescale/imx93_frdm/spl.c
+index 18b313d4c10..d8a6cff2801 100644
+--- a/board/freescale/imx93_frdm/spl.c
++++ b/board/freescale/imx93_frdm/spl.c
+@@ -80,7 +80,7 @@ void spl_board_init(void)
+ 	if (ret)
+ 		printf("Fail to start RNG: %d\n", ret);
+ 
+-	puts("Normal Boot\n");
++	puts("Normal Boot (dmoseley build)\n");
+ }
+ 
+ void spl_dram_init(void)
+-- 
+2.34.1
+
